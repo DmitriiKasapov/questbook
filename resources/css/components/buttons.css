@@ -2,7 +2,7 @@
   .btn-main-body {
     @apply
     inline-block
-    py-[15px]
+    py-[12px]
     px-[20px]
     rounded-4xl
     ;

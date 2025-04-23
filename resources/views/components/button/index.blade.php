@@ -11,7 +11,7 @@
   'dataCC' => '',
   'onclick' => '',
 ])
-<div class="btn-main mt-[30px] relative p-[2px] rounded-4xl w-max bg-linear-[116.57deg,#002E6E_0%,#00AEEF_83.33%]">
+<div class="btn-main relative p-[2px] rounded-4xl w-max h-[48px] bg-linear-[116.57deg,#002E6E_0%,#00AEEF_83.33%]">
 @if ($link)
 <a
   href="{{ $link }}"
@@ -22,7 +22,7 @@
 
  @if($target) target="{{ $target }}" @endif
 
-  class="btn-main-body inline-block py-[15px] px-[20px] rounded-4xl {{ $class ?? '' }} {{ $white ? 'bg-white' : 'bg-darkblue' }} {{ $disable ? 'disable' : '' }}" wire:loading.class="disable" wire:loading.attr="disabled" >
+  class="btn-main-body {{ $class ?? '' }} {{ $white ? 'bg-white' : 'bg-darkblue' }} {{ $disable ? 'disable' : '' }}" wire:loading.class="disable" wire:loading.attr="disabled" >
 @else
 <button wire:loading.class="disable" wire:loading.attr="disabled" class="btn-main-body {{ $class ?? '' }} {{ $white ? 'bg-white' : 'bg-darkblue' }} {{ $disable ? 'disable' : '' }}"
 

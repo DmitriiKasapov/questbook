@@ -42,7 +42,7 @@ $menuItems = [
   :class="scrolled ? 'bg-darkblue shadow-header' : 'bg-transparent'"
   class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
   >
-  <div class="max-w-[1920px] mx-auto pl-[70px] pr-6 py-7 flex justify-between items-center">
+  <div class="max-w-[1920px] mx-auto pl-[70px] pr-6 py-[26px] flex justify-between items-center">
       <a href="/">
         <div class="img-wrapper">
            <img src="{{ Vite::asset('resources/images/Integralis-logo.svg') }}" alt="Integralis">
