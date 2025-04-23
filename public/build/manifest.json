@@ -1,0 +1,28 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-D_PU5UWI.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/OpenSans-Regular.ttf": {
+    "file": "assets/OpenSans-Regular-ny0EsrSs.ttf",
+    "src": "resources/fonts/OpenSans-Regular.ttf"
+  },
+  "resources/images/favicon.png": {
+    "file": "assets/favicon-D8ylYlXQ.png",
+    "src": "resources/images/favicon.png"
+  },
+  "resources/images/favicon.webp": {
+    "file": "assets/favicon-TGuc3uPI.webp",
+    "src": "resources/images/favicon.webp"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CpgwiN-h.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-CRsBa7-T.css"
+    ]
+  }
+}

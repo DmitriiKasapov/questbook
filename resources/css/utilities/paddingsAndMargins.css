@@ -1,0 +1,16 @@
+@utility p-var {
+  padding-top: var(--padding-px);
+  padding-bottom: var(--padding-px);
+  padding-left: var(--padding-px);
+  padding-right: var(--padding-px);
+}
+
+@utility py-var {
+  padding-top: var(--padding-px);
+  padding-bottom: var(--padding-px);
+}
+
+@utility px-var {
+  padding-left: var(--padding-px);
+  padding-right: var(--padding-px);
+}

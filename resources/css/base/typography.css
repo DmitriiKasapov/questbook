@@ -1,0 +1,29 @@
+@layer base {
+  body {
+    @apply font-sans text-sm leading-5;
+  }
+
+  h1, .h1 {
+    @apply font-semibold text-[2.5rem] leading-[3rem];
+  }
+
+  h2, .h2 {
+    @apply font-semibold text-[1.75rem] leading-9;
+  }
+
+  h3, .h3 {
+    @apply font-semibold text-2xl;
+  }
+
+  h4 {
+    @apply font-semibold text-xl leading-6;
+  }
+
+  h5 {
+    @apply font-semibold text-base leading-5;
+  }
+
+  b, strong {
+    @apply font-bold;
+  }
+}

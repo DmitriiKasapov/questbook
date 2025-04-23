@@ -1,0 +1,29 @@
+.modal {
+  @apply fixed left-0 right-0 bottom-0 top-0 opacity-0 z-[9999];
+  transition: opacity 0.25s ease-in-out;
+
+  .modal-background {
+    @apply fixed left-0 right-0 bottom-0 top-0 opacity-50;
+  }
+
+  .modal-content-wrapper {
+    @apply absolute top-1/2 left-1/2 flex justify-center items-center w-full;
+    max-height: calc(100% - 100px);
+    max-width: min(calc(100% - var(--padding-px)), var(--container-max-width));
+    transform: translate(-50%, -50%);
+  }
+
+  .modal-content {
+    @apply scale-50 max-w-full;
+    transition: transform 0.275s ease;
+  }
+
+  &.modal-open {
+    @apply opacity-100;
+
+    .modal-content {
+      @apply scale-100;
+      transition: transform 0.275s ease;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.plus-sign {
+  position: relative;
+  width: 5px;
+  height: 1px;
+  transition: width 0.25s ease-in-out;
+  span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.25s ease-in-out, transform 0.25s ease-in-out;
+    &:nth-child(2) {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.expandable {
+  &.animation-open {
+    .plus-sign {
+      width: 7px;
+      span {
+        &:nth-child(1) {
+          transform: rotate(180deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+  &.expanded {
+    .plus-sign {
+      width: 7px;
+      span {
+        &:nth-child(1) {
+          transform: rotate(180deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+  &.animation-close {
+    .plus-sign {
+      width: 5px;
+      span {
+        &:nth-child(1) {
+          transform: rotate(0deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}

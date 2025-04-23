@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@import "./base/theme.css";
+@import "./base/root.css";
+@import "./base/fonts.css";
+@import "./base/base.css";
+@import "./base/typography.css";
+
+@import "./components/expandable.css";
+@import "./components/checkbox.css";
+@import "./components/components.css";
+@import "./components/cookies.css";
+@import "./components/buttons.css";
+@import "./components/form_base.css";
+@import "./components/menu.css";
+@import "./components/modals.css";
+@import "./components/swiper.css";
+@import "./components/wysiwyg.css";
+
+@import "./utilities/containerGrid.css";
+@import "./utilities/paddingsAndMargins.css";
+@import "./utilities/utilities.css";
+

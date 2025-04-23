@@ -1,0 +1,95 @@
+/* Underline */
+@utility animated-underline {
+  background-image:
+    linear-gradient(
+      var(--color-transparent),
+      var(--color-transparent),
+      linear-gradient(currentColor, currentColor)
+    );
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% calc(100% - 1px), 0 calc(100% - 1px);
+  background-repeat: no-repeat;
+  transition: background-size 0.4s 0.1s ease-out;
+
+  &.reverse {
+    background-position: 0% 100%, 100% 100%;
+  }
+}
+
+/* Other */
+@utility flex-full {
+  flex: 0 1 100%;
+}
+
+@utility hide-scrollbar {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+}
+
+@utility custom-scrollbar-* {
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 4px;
+    background-color: var(--color-transparent);
+    background-color: --modifier(--color-*);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: --value(--color-*);
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color:
+      --value(--color-*),
+      var(--color-transparent);
+    scrollbar-color:
+      --value(--color-*),
+      --modifier(--color-*,);
+  }
+}
+
+@utility visually-hidden {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(100%);
+}
+
+@utility top-center {
+  top: 50%;
+  --transform-y: -50%;
+  transform: translate(var(--transform-x, 0%), var(--transform-y, 0%));
+}
+
+@utility left-center {
+  left: 50%;
+  --transform-x: -50%;
+  transform: translate(var(--transform-x, 0%), var(--transform-y, 0%));
+}
+
+@utility grid-auto-fill-* {
+  grid-template-columns: repeat(auto-fill, minmax(--value(length, [length]), 1fr))
+}
+
+@utility grid-auto-fit-* {
+  grid-template-columns: repeat(auto-fit, minmax(--value(length, [length]), 1fr))
+}
+
+@layer utilities {
+  a, button {
+    &:hover {
+      > .animated-underline,
+      &.animated-underline {
+        background-size: 0 0.1em, 100% 0.1em;
+        transition: background-size 0.5s 0s ease-out;
+      }
+    }
+  }
+}

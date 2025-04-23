@@ -1,0 +1,57 @@
+@theme {
+  /* Colors */
+  --color-primary: #007378;
+  --color-primary-dark: #00474A;
+  --color-secondary: #502D2D;
+  --color-secondary-light: #DCC8A5;
+  --color-babyblue-light: #B2F5FF;
+  --color-beige-100: #F3F2F0;
+  --color-beige-200: #E8E5E0;
+  --color-grey-text: #232323;
+  --color-grey-lines: #D0D0D0;
+  --color-grey-captions: #707070;
+  --color-danger: #E63027;
+
+  /* Box shadow */
+  --shadow-*: initial;
+  --shadow-small: 0px 0px 8px 0px #0000004D;
+  --shadow-big: 0px 0px 20px 0px #00000026;
+
+  /* Misc variables */
+  --container-max-width: 1120px;
+
+  /* Paddings and screens */
+  --gap: 0.5rem; /* Gap zero */
+  --gap-md: 1rem;
+  --gap-xl: 1.5rem;
+
+  --padding-px: 16px; /* Padding zero */
+  --padding-xs: 16px;
+  --padding-sm: 20px;
+  --padding-md: 28px;
+  --padding-lg: 48px;
+  --padding-xl: 80px;
+  --padding-2xl: 120px;
+  --padding-3xl: 140px;
+
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 912px;
+  --breakpoint-xl: 1024px;
+  --breakpoint-2xl: 1200px;
+  --breakpoint-3xl: 1400px;
+
+  /* Fonts */
+  --font-final-six: "FinalSix", var(--default-font-family);
+  --font-futura-condensed: "FuturaCondensed";
+
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.2;
+  --text-3xl--line-height: 1.1;
+
+  --leading-compact: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.6;
+}
+

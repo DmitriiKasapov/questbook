@@ -1,0 +1,52 @@
+/*
+HTML example (replace svg with the correct svg from the design):
+
+<div class="form-item checkbox">
+  <input id="" name="" type="checkbox" class="visually-hidden">
+  <label for="" class="checkbox-holder flex gap-2 cursor-pointer">
+    <!-- Check icon -->
+    <div class="faux-checkbox flex justify-center items-center !text-white !border border-basic-500 !bg-white h-[22px] w-[22px] transition duration-250">
+      <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 7L4 10L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+    <div class="checkbox-text">
+      <p>
+        Text
+      </p>
+    </div>
+  </label>
+</div> */
+
+.checkbox {
+  input {
+    &:checked + label {
+      svg {
+        path {
+          transition: stroke-dashoffset 0.15s 0.1s ease;
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .faux-checkbox {
+        @apply !bg-primary border-primary;
+      }
+    }
+  }
+}
+
+.checkbox-holder {
+  .faux-checkbox {
+    border-radius: 5px;
+  }
+  svg {
+    margin-bottom: 1px;
+    path {
+      /* Stroke dasharray and stroke dashoffset may need to be tweaked */
+      transition: stroke-dashoffset 0.15s ease;
+      stroke: currentColor;
+      stroke-dasharray: 20;
+      stroke-dashoffset: 20;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@layer base {
+  html {
+    overflow-x: hidden;
+  }
+
+  b, strong {
+    @apply font-bold;
+  }
+
+  a {
+    &:hover {
+      color: currentColor;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+}

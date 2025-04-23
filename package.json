@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "prod": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.7.2",
+        "fast-glob": "^3.3.2",
+        "laravel-vite-plugin": "^1.0.4",
+        "@tailwindcss/vite": "^4.0.1",
+        "tailwindcss": "^4.0.1",
+        "vite": "^6.0.5"
+    },
+    "dependencies": {
+        "vanilla-cookieconsent": "^3.0.1"
+    }
+}
+
+

@@ -1,0 +1,26 @@
+/.fleet
+/.idea
+/.phpunit.cache
+/.vscode
+/node_modules
+/public/.htaccess
+/public/.user.ini
+# /public/build
+/public/hot
+/public/php.ini
+/public/sitemap.xml
+/public/storage
+/public/storage.lnk
+/storage/*.key
+/vendor
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+auth.json
+error_log
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
