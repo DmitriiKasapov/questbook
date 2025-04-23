@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
+
 @import "./base/theme.css";
 @import "./base/root.css";
 @import "./base/fonts.css";
 @import "./base/base.css";
+@import "./base/icons.css";
 @import "./base/typography.css";
 
 @import "./components/expandable.css";
@@ -21,3 +23,4 @@
 @import "./utilities/paddingsAndMargins.css";
 @import "./utilities/utilities.css";
 
+@source "../views";

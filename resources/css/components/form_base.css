@@ -28,7 +28,7 @@
       border-radius: 50%;
       position: relative;
       z-index: 2;
-      background-color: theme('colors.primary.DEFAULT');
+      background-color: #FFFFFF;
       height: 20px;
       width: 20px;
       margin-top: -5px;
@@ -51,7 +51,7 @@
       border-radius: 50%; /*Removes default border-radius that FF applies*/
       position: relative;
       z-index: 2;
-      background-color: theme('colors.primary.DEFAULT');
+      background-color: #FFFFFF;
       height: 20px;
       width: 20px;
       margin-top: -5px;

@@ -9,7 +9,8 @@
       :fb="Vite::img('favicon.png')"
       alt="alt text"
     />
-    <h1>Hello Dimitrii!</h1>
+    <div class="font-mbold">Hello Dimitrii!</div>
+    <span class="icon-user_home text-blue"></span>
   </div>
 </div>
 

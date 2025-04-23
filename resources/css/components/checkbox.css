@@ -28,9 +28,10 @@ HTML example (replace svg with the correct svg from the design):
         }
       }
 
-      .faux-checkbox {
-        @apply !bg-primary border-primary;
-      }
+      /* .faux-checkbox {
+        @apply !bg-primary
+        border-primary;
+      } */
     }
   }
 }

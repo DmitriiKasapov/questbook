@@ -7,7 +7,7 @@
   @include('includes.scripts.top')
 </head>
 
-<body>
+<body class="{{ $class ?? '' }} relative">
   <x-header/>
 
   <main class="flex-1">

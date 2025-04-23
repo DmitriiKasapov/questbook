@@ -1,7 +1,14 @@
 @theme {
+
+  --font-sans: "MyriadPro", sans-serif;
+  --font-mbold: "MyriadProBold";
+  --font-mblack: "MyriadProBlack";
   /* Colors */
-  --color-primary: #007378;
-  --color-primary-dark: #00474A;
+
+  --color-blue: #00AEEF;
+  --color-darkblue: #002E6E;
+  --color-gray: #A7A9AC;
+  --color-darkgray: #484848;
   --color-secondary: #502D2D;
   --color-secondary-light: #DCC8A5;
   --color-babyblue-light: #B2F5FF;
@@ -16,16 +23,19 @@
   --shadow-*: initial;
   --shadow-small: 0px 0px 8px 0px #0000004D;
   --shadow-big: 0px 0px 20px 0px #00000026;
+  --shadow-header: 0px 12px 24px 0px #0000003D;
+
+
 
   /* Misc variables */
   --container-max-width: 1120px;
 
   /* Paddings and screens */
-  --gap: 0.5rem; /* Gap zero */
+  --gap: 0.5rem;
   --gap-md: 1rem;
   --gap-xl: 1.5rem;
 
-  --padding-px: 16px; /* Padding zero */
+  --padding-px: 16px;
   --padding-xs: 16px;
   --padding-sm: 20px;
   --padding-md: 28px;

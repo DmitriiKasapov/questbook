@@ -9,7 +9,8 @@ import { Expandable } from './exports/expandable';
 // import scrollAnimations from './exports/scrollAnimations'
 // import { triggerOnWindowBreak, setCSSProperty } from './exports/helpers'
 // import { defaultSwiperElement } from './exports/swiperProps'
-
+import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
+Alpine.start()
 //// GSAP ////
 
 // gsap.registerPlugin(ScrollTrigger)

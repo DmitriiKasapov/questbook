@@ -48,8 +48,12 @@ const containerPaddings = {
 
 export default {
   content: require("fast-glob").sync([
+    './resources/js/*.js',
+    './resources/js/**/*.js',
     './resources/views/*.php',
     './resources/views/**/*.php',
+    './resources/views/**/**/*.php',
+    './resources/views/**/**/**/*.php',
     './lang/**/*.php',
   ]),
   theme: {
@@ -65,7 +69,7 @@ export default {
     },
     fontFamily: {
       sans: [
-        ["Poppins", ...defaultTheme.fontFamily.sans],
+        ["MyriadPro", ...defaultTheme.fontFamily.sans],
         {
           fontVariationSettings: '"wght" 400',
         },

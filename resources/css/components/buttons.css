@@ -1,3 +1,38 @@
 @layer components {
+  .btn-main-body {
+    @apply
+    inline-block
+    py-[15px]
+    px-[20px]
+    rounded-4xl
+    ;
+  }
+
+  .btn-main-icon,
+  .btn-main-text,
+  .btn-main-body {
+      transition: all 0.3s ease-in-out;
+  }
+  .btn-main:hover .btn-main-body {
+    @apply
+    bg-transparent
+
+    ;
+  }
+  .btn-main:hover .btn-main-icon,
+  .btn-main:hover .btn-main-text {
+      color: #FFFFFF;
+  }
+  .btn-main-text {
+    @apply
+    font-mbold
+    font-bold
+    leading-[100%]
+    text-center
+    uppercase
+    text-blue
+
+    ;
+  }
 
 }

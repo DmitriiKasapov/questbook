@@ -1,6 +1,10 @@
 @layer base {
   body {
-    @apply font-sans text-sm leading-5;
+    @apply
+    font-sans
+    text-[17px]
+    leading-[120%]
+    ;
   }
 
   h1, .h1 {
