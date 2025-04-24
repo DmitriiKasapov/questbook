@@ -43,6 +43,42 @@
   font-weight: 900;
   font-display: swap;
 }
+ @font-face {
+  font-family: "MyriadProCond";
+  src: url("@/fonts/MyriadProCond/MyriadPro-Cond.eot");
+  src: url("@/fonts/MyriadProCond/MyriadPro-Cond.woff2") format("woff2"),
+    url("@/fonts/MyriadProCond/MyriadPro-Cond.woff") format("woff"),
+    url("@/fonts/MyriadProCond/MyriadPro-Cond.ttf") format("truetype"),
+    url("@/fonts/MyriadProCond/MyriadPro-Cond.eot?#iefix")
+      format("embedded-opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+ @font-face {
+  font-family: "MyriadProCondBold";
+  src: url("@/fonts/MyriadProCond/MyriadPro-BoldCond.eot");
+  src: url("@/fonts/MyriadProCond/MyriadPro-BoldCond.woff2") format("woff2"),
+    url("@/fonts/MyriadProCond/MyriadPro-BoldCond.woff") format("woff"),
+    url("@/fonts/MyriadProCond/MyriadPro-BoldCond.ttf") format("truetype"),
+    url("@/fonts/MyriadProCond/MyriadPro-BoldCond.eot?#iefix")
+      format("embedded-opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+ @font-face {
+  font-family: "MyriadProCondBlack";
+  src: url("@/fonts/MyriadProCond/MyriadPro-BlackCond.eot");
+  src: url("@/fonts/MyriadProCond/MyriadPro-BlackCond.woff2") format("woff2"),
+    url("@/fonts/MyriadProCond/MyriadPro-BlackCond.woff") format("woff"),
+    url("@/fonts/MyriadProCond/MyriadPro-BlackCond.ttf") format("truetype"),
+    url("@/fonts/MyriadProCond/MyriadPro-BlackCond.eot?#iefix")
+      format("embedded-opentype");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
 
 @font-face {
   font-family: "icons";

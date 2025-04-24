@@ -15,7 +15,15 @@
     background-position: 0% 100%, 100% 100%;
   }
 }
-
+a, button {
+  &:hover {
+    > .animated-underline,
+    &.animated-underline {
+      background-size: 0 0.1em, 100% 0.1em;
+      transition: background-size 0.5s 0s ease-out;
+    }
+  }
+}
 /* Other */
 @utility flex-full {
   flex: 0 1 100%;
@@ -82,14 +90,3 @@
   grid-template-columns: repeat(auto-fit, minmax(--value(length, [length]), 1fr))
 }
 
-@layer utilities {
-  a, button {
-    &:hover {
-      > .animated-underline,
-      &.animated-underline {
-        background-size: 0 0.1em, 100% 0.1em;
-        transition: background-size 0.5s 0s ease-out;
-      }
-    }
-  }
-}

@@ -10,13 +10,14 @@
             @if(isset($item['children']))
                 <button
                     @click="openMenu === '{{ $item['label'] }}' ? openMenu = null : openMenu = '{{ $item['label'] }}'"
-                    class="flex items-center gap-1 hover:text-blue-600"
+                    class="header-menu-item bg-underline flex items-center gap-1 hover:text-blue"
                     type="button"
                 >
-                    <span>{{ $item['label'] }}</span>
-                    <svg class="w-4 h-4 transition-transform duration-200" :class="openMenu === '{{ $item['label'] }}' ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span class="menu-item-el main-bold text-gray">{{ $item['label'] }}</span>
+                    <span class="menu-item-el icon-chevron_D text-blue text-[17px]"></span>
+                    {{-- <svg class="w-4 h-4 transition-transform duration-200" :class="openMenu === '{{ $item['label'] }}' ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
+                    </svg> --}}
                 </button>
 
                 <div
@@ -35,7 +36,7 @@
                     @endforeach
                 </div>
             @else
-                <a href="{{ $item['url'] ?? '#' }}" class="hover:text-blue-600">{{ $item['label'] }}</a>
+                <a href="{{ $item['url'] ?? '#' }}" class="menu-item-link animated-underline main-bold text-gray header-menu-item">{{ $item['label'] }}</a>
             @endif
         </div>
     @endforeach

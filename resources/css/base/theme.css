@@ -3,12 +3,17 @@
   --font-sans: "MyriadPro", sans-serif;
   --font-mbold: "MyriadProBold";
   --font-mblack: "MyriadProBlack";
+  --font-mc-sans: "MyriadProCond", sans-serif;
+  --font-mc-bold: "MyriadProCondBold";
+  --font-mc-black: "MyriadProCondBlack";
   /* Colors */
-
+  --color-transparent: transparent;
   --color-blue: #00AEEF;
   --color-darkblue: #002E6E;
   --color-gray: #A7A9AC;
   --color-darkgray: #484848;
+  --color-lightblue: #B4D5E5;
+
   --color-secondary: #502D2D;
   --color-secondary-light: #DCC8A5;
   --color-babyblue-light: #B2F5FF;

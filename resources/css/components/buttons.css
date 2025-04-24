@@ -1,38 +1,43 @@
 @layer components {
-  .btn-main-body {
+    .btn-main-body {
     @apply
-    inline-block
-    py-[12px]
-    px-[20px]
+    flex
+    items-center
+    justify-center
+    h-full
+    py-[10px]
+    pl-[20px]
     rounded-4xl
     ;
   }
-
   .btn-main-icon,
   .btn-main-text,
   .btn-main-body {
       transition: all 0.3s ease-in-out;
   }
+  .btn-main-body.dark {
+    @apply
+    bg-darkblue
+    ;
+  }
+  .btn-main-body.white {
+    @apply
+    bg-white
+    ;
+  }
   .btn-main:hover .btn-main-body {
     @apply
     bg-transparent
-
+    ;
+  }
+  .btn-main-icon,
+  .btn-main-text {
+    @apply
+    text-blue
     ;
   }
   .btn-main:hover .btn-main-icon,
   .btn-main:hover .btn-main-text {
       color: #FFFFFF;
   }
-  .btn-main-text {
-    @apply
-    font-mbold
-    font-bold
-    leading-[100%]
-    text-center
-    uppercase
-    text-blue
-
-    ;
-  }
-
 }

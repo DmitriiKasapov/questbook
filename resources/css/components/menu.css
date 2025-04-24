@@ -1,3 +1,29 @@
 .menu {
     @apply hidden;
 }
+.header-menu-item {
+  @apply
+    cursor-pointer
+  ;
+}
+.header-menu-item .icon-chevron_D::before {
+  @apply
+    text-[17px]
+    absolute
+    bottom-1/2
+    translate-y-1/2
+  ;
+}
+.menu-item-link:hover,
+.header-menu-item:hover .menu-item-el {
+  @apply
+    text-lightblue
+    transition-all
+    duration-300
+  ;
+}
+.menu-item-link.animated-underline:hover {
+  @apply
+  bg-linear-[rgba(0,0,0,0),rgba(0,0,0,0),#FFFFFF]
+  ;
+}

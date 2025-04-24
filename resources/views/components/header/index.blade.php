@@ -42,20 +42,28 @@ $menuItems = [
   :class="scrolled ? 'bg-darkblue shadow-header' : 'bg-transparent'"
   class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
   >
-  <div class="max-w-[1920px] mx-auto pl-[70px] pr-6 py-[26px] flex justify-between items-center">
-      <a href="/">
-        <div class="img-wrapper">
-           <img src="{{ Vite::asset('resources/images/Integralis-logo.svg') }}" alt="Integralis">
-        </div>
-      </a>
+  <div
+  :class="scrolled ? 'py-[8px]' : 'py-[27px]'"
+  class="max-w-[1920px] mx-auto pl-[70px] pr-6 flex justify-between items-center ease-linear duration-300"
+  >
 
-      <x-header.menu :items="$menuItems" />
-
-      <div>
-        <x-button link="#">
-          KONTAKT
-        </x-button>
+    <a href="/">
+      <div
+      :class="scrolled ? 'w-[133px]' : 'w-[187px]'"
+      class="img-wrapper ease-linear duration-300">
+          <img class="w-full object-cover" src="{{ Vite::asset('resources/images/Integralis-logo.svg') }}" alt="Integralis">
       </div>
+    </a>
+
+    <div class="gray-line mx-6"></div>
+
+    <x-header.menu :items="$menuItems" />
+    <div class="gray-line mx-6"></div>
+    <div>
+      <x-button link="#">
+        KONTAKT
+      </x-button>
+    </div>
 
   </div>
 </header>

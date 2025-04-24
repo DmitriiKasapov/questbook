@@ -1,3 +1,11 @@
 @layer components {
 
 }
+.gray-line {
+  @apply
+  mx-6
+  h-[1px]
+  bg-gray
+  ;
+  flex: 1;
+}
