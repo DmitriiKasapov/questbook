@@ -40,7 +40,8 @@
   font-mc-black
   font-black
   leading-[100%]
-  text-[70px]
+  sm:text-[70px]
+  text-[40px]
   ;
 }
 .main-bold {

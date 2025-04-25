@@ -4,16 +4,43 @@
 .header-menu-item {
   @apply
     cursor-pointer
+    relative
+  ;
+}
+.header-menu-item::after {
+  @apply
+    content-['']
+    absolute
+    h-[2px]
+    bg-linear-[90deg,#A7A9Ac,#00AEFF,#002E6E]
+    bottom-[-10px]
+    left-0
+    /* right-1/2
+    translate-x-1/2 */
+    w-0
+    transition-all
+    duration-300
+  ;
+}
+.header-menu-item:hover::after,
+.header-menu-item.active::after {
+  @apply
+    w-full
+    transition-all
+    duration-300
   ;
 }
 .header-menu-item .icon-chevron_D::before {
   @apply
     text-[17px]
     absolute
+    right-0
     bottom-1/2
     translate-y-1/2
   ;
 }
+.menu-item-link.active,
+.header-menu-item.active .menu-item-el,
 .menu-item-link:hover,
 .header-menu-item:hover .menu-item-el {
   @apply
@@ -27,3 +54,19 @@
   bg-linear-[rgba(0,0,0,0),rgba(0,0,0,0),#FFFFFF]
   ;
 }
+.header-submenu::before {
+  @apply
+  content-['']
+  absolute
+  top-[-14px]
+  left-[20px]
+  h-0
+  w-0
+  border-[8px]
+  border-solid
+  border-[transparent_transparent_#FFFFFF_transparent]
+  bg-transparent
+  ;
+
+}
+

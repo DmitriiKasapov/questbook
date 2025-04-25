@@ -2,7 +2,7 @@
   'class' => '',
   'content' => [],
 ])
-<div class="banners_hero banner-hero relative h-screen min-h-[650px]  {{ $class }}">
+<div class="banners_hero banner-hero relative h-max min-h-[720px]  {{ $class }}">
   <div class="absolute z-[1] left-0 right-0 w-100% h-[245px] bg-linear-[180deg,#000000,rgba(0,0,0,0)]">
 
   </div>
@@ -29,9 +29,10 @@
     </div>
   </div>
   <div class="container-grid relative">
-    <div class="content content-start-2 content-span-7 pt-[220px] pb-[360px]">
+    <div class="content md:content-start-2 md:content-span-7 sm:content-span-9 md:pt-[220px] pt-[164px] md:pb-[360px] pb-[228px]">
       <h1 class="big-title text-shadow-header text-blue mb-6">{{ $content['title'] }}</h1>
       <p class="text-white text-shadow-header mb-6">{{ $content['text'] }}</p>
+
       <x-button
         link="{{ $content['btn_link'] }}"
         icon="{{ $content['btn_icon'] }}"
@@ -39,9 +40,7 @@
         >
         {{ $content['btn_text'] }}
       </x-button>
-      <a href="#"><span class="animated-underline text-white">TEST</span></a>
-      <a href="#" class="animated-underline text-white">TEST</a>
-    </div>
+
   </div>
 
 </div>

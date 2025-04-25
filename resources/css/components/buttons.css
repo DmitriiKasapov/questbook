@@ -1,43 +1,44 @@
 @layer components {
-    .btn-main-body {
+  .main-button {
     @apply
+    relative
     flex
     items-center
     justify-center
-    h-full
-    py-[10px]
-    pl-[20px]
-    rounded-4xl
-    ;
-  }
-  .btn-main-icon,
-  .btn-main-text,
-  .btn-main-body {
-      transition: all 0.3s ease-in-out;
-  }
-  .btn-main-body.dark {
-    @apply
-    bg-darkblue
-    ;
-  }
-  .btn-main-body.white {
-    @apply
-    bg-white
-    ;
-  }
-  .btn-main:hover .btn-main-body {
-    @apply
-    bg-transparent
-    ;
-  }
-  .btn-main-icon,
-  .btn-main-text {
-    @apply
     text-blue
+    rounded-4xl
+    cursor-pointer
+    h-full
+    font-bold
+    leading-[100%]
     ;
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    transition: background 0.5s ease-in-out, color 0.3s ease-in-out;
   }
-  .btn-main:hover .btn-main-icon,
-  .btn-main:hover .btn-main-text {
-      color: #FFFFFF;
+
+  .main-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px; /* širina borderja */
+    border-radius: 32px;
+    background: linear-gradient(116.57deg, #002E6E 0%, #00AEEF 83.33%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
+
+  .main-button:hover {
+    background: linear-gradient(116.57deg, #002E6E 0%, #00AEEF 83.33%);
+    color: white;
+  }
+
+
+
+
+
 }
