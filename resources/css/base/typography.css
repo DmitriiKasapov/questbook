@@ -52,5 +52,13 @@
   uppercase
   ;
 }
+.text20 {
+  @apply
+  font-mc-sans
+  font-normal
+  text-[20px]
+  leading-[100%]
+  ;
+}
 
 

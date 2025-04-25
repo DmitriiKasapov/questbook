@@ -75,9 +75,8 @@ $menuItems = [
         KONTAKT
       </x-button>
     </div>
-    <div class="burger-icon cursor-pointer xl:hidden">
-      <span class="icon-hamburger_menu text-blue hover:text-lightblue transition-all duration-300"></span>
-    </div>
+
+    <x-header.mobileMenu :items="$menuItems" />
   </div>
 </header>
 

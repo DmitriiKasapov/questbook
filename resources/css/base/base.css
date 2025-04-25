@@ -200,39 +200,15 @@ input {
   pb-3
   ;
 }
-.border-top-black {
-  border-top: 1px solid #000000;
+.hide-scrollbar {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 }
-.border-top-lgreen {
-  border-top: 1px solid #92BB96;
-}
-.border-top-gray {
-  border-top: 1px solid #D3CFCC;
-}
-.border-left-gray {
-  border-left: 1px solid #D3CFCC;
-}
-.border-left {
-  border-left: 1px solid #000000;
-}
-.border-right {
-  border-right: 1px solid #000000;
-}
-.border-bottom-gray {
-  border-bottom: 1px solid #D3CFCC;
-}
-
 .block-center {
   @apply
   flex
   justify-center
   text-center
-  ;
-}
-
-.link-primary.center {
-  @apply
-    justify-center
   ;
 }
 

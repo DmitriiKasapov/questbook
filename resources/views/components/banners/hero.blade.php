@@ -3,7 +3,7 @@
   'content' => [],
 ])
 <div class="banners_hero banner-hero relative h-max min-h-[720px]  {{ $class }}">
-  <div class="absolute z-[1] left-0 right-0 w-100% h-[245px] bg-linear-[180deg,#000000,rgba(0,0,0,0)]">
+  <div class="max-sm:hidden absolute z-[1] left-0 right-0 w-100% h-[245px] bg-linear-[180deg,#000000,rgba(0,0,0,0)]">
 
   </div>
   <div class="absolute top-0 bottom-0 left-0 right-0">
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="container-grid relative">
-    <div class="content md:content-start-2 md:content-span-7 sm:content-span-9 md:pt-[220px] pt-[164px] md:pb-[360px] pb-[228px]">
+    <div class="content md:content-start-2 md:content-span-7 sm:content-span-8 md:pt-[220px] pt-[164px] md:pb-[360px] pb-[228px]">
       <h1 class="big-title text-shadow-header text-blue mb-6">{{ $content['title'] }}</h1>
       <p class="text-white text-shadow-header mb-6">{{ $content['text'] }}</p>
 

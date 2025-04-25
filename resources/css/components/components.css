@@ -10,3 +10,9 @@
   ;
   flex: 1;
 }
+.header_mobileMenu .gray-line {
+  @apply
+  mx-0
+  mr-5
+  ;
+}

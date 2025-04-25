@@ -39,6 +39,7 @@
     translate-y-1/2
   ;
 }
+
 .menu-item-link.active,
 .header-menu-item.active .menu-item-el,
 .menu-item-link:hover,
@@ -69,4 +70,59 @@
   ;
 
 }
-
+.menu-item-link,
+.mobile-submenu-el,
+.mobile-menu-item {
+  @apply
+  transition-all
+  duration-300
+  border-l-[2px]
+  border-transparent
+  ;
+}
+.menu-item-link:hover,
+.menu-item-link.active,
+.mobile-submenu-el:hover,
+.mobile-menu-item:hover,
+.mobile-menu-item.active {
+  @apply
+  transition-all
+  duration-300
+  border-l-[2px]
+  border-blue
+  ;
+}
+.menu-item-link.active,
+.menu-item-link:hover,
+.mobile-submenu-el:hover,
+.mobile-menu-item:hover span,
+.mobile-menu-item.active span {
+  @apply
+  text-blue
+  transition-all
+  duration-300
+  ;
+}
+.mobile-menu-item .icon-chevron_D::before {
+  @apply
+    text-[17px]
+    absolute
+    bottom-1/2
+    translate-y-1/2
+  ;
+}
+.social-icons a {
+  @apply
+    w-[53px]
+    h-[53px]
+    rounded-full
+    bg-blue
+    hover:bg-lightblue
+    flex
+    items-center
+    justify-center
+    text-darkblue
+    transition-all
+    duration-300
+  ;
+}

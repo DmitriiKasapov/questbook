@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-B_adRFgM.css",
+    "file": "assets/app-BHK12XbO.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -100,6 +100,86 @@
     "file": "assets/MyriadPro-Semibold-8U1UEaEf.woff2",
     "src": "resources/fonts/MyriadPro/MyriadPro-Semibold.woff2"
   },
+  "resources/fonts/MyriadProCond/MyriadPro-BlackCond.eot": {
+    "file": "assets/MyriadPro-BlackCond-jcD0s96m.eot",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BlackCond.eot"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BlackCond.ttf": {
+    "file": "assets/MyriadPro-BlackCond-CHVQh-E1.ttf",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BlackCond.ttf"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BlackCond.woff": {
+    "file": "assets/MyriadPro-BlackCond-DfnB9dCC.woff",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BlackCond.woff"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BlackCond.woff2": {
+    "file": "assets/MyriadPro-BlackCond-Op-hUIB3.woff2",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BlackCond.woff2"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BoldCond.eot": {
+    "file": "assets/MyriadPro-BoldCond-1eZgKTTK.eot",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BoldCond.eot"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BoldCond.ttf": {
+    "file": "assets/MyriadPro-BoldCond-KyYSrBvf.ttf",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BoldCond.ttf"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BoldCond.woff": {
+    "file": "assets/MyriadPro-BoldCond-BdmIQ5p6.woff",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BoldCond.woff"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-BoldCond.woff2": {
+    "file": "assets/MyriadPro-BoldCond-BXDWKzCX.woff2",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-BoldCond.woff2"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-Cond.eot": {
+    "file": "assets/MyriadPro-Cond-BuAliiaa.eot",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-Cond.eot"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-Cond.ttf": {
+    "file": "assets/MyriadPro-Cond-BtWacyrD.ttf",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-Cond.ttf"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-Cond.woff": {
+    "file": "assets/MyriadPro-Cond-mtxbnDBw.woff",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-Cond.woff"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-Cond.woff2": {
+    "file": "assets/MyriadPro-Cond-CLjnmjM0.woff2",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-Cond.woff2"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-CondIt.eot": {
+    "file": "assets/MyriadPro-CondIt-BHvBOWw-.eot",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-CondIt.eot"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-CondIt.ttf": {
+    "file": "assets/MyriadPro-CondIt-CjQtxIvl.ttf",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-CondIt.ttf"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-CondIt.woff": {
+    "file": "assets/MyriadPro-CondIt-B6WQGVNj.woff",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-CondIt.woff"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-CondIt.woff2": {
+    "file": "assets/MyriadPro-CondIt-Po3DLNGu.woff2",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-CondIt.woff2"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.eot": {
+    "file": "assets/MyriadPro-SemiboldCond-BeBAhNRJ.eot",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.eot"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.ttf": {
+    "file": "assets/MyriadPro-SemiboldCond-Ck4R3j8e.ttf",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.ttf"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.woff": {
+    "file": "assets/MyriadPro-SemiboldCond-DzJpj7gG.woff",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.woff"
+  },
+  "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.woff2": {
+    "file": "assets/MyriadPro-SemiboldCond-BSQqinNz.woff2",
+    "src": "resources/fonts/MyriadProCond/MyriadPro-SemiboldCond.woff2"
+  },
   "resources/fonts/OpenSans-Regular.ttf": {
     "file": "assets/OpenSans-Regular-ny0EsrSs.ttf",
     "src": "resources/fonts/OpenSans-Regular.ttf"
@@ -123,6 +203,14 @@
   "resources/images/Integralis-logo.svg": {
     "file": "assets/Integralis-logo-Cv5yC54Y.svg",
     "src": "resources/images/Integralis-logo.svg"
+  },
+  "resources/images/banner-home-min.jpg": {
+    "file": "assets/banner-home-min-BXu5MIkY.jpg",
+    "src": "resources/images/banner-home-min.jpg"
+  },
+  "resources/images/banner-home.jpg": {
+    "file": "assets/banner-home-C0lq1b1z.jpg",
+    "src": "resources/images/banner-home.jpg"
   },
   "resources/images/favicon.png": {
     "file": "assets/favicon-D8ylYlXQ.png",
