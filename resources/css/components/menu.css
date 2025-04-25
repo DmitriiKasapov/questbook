@@ -113,8 +113,8 @@
 }
 .social-icons a {
   @apply
-    w-[53px]
-    h-[53px]
+    w-[52px]
+    h-[52px]
     rounded-full
     bg-blue
     hover:bg-lightblue
@@ -124,5 +124,13 @@
     text-darkblue
     transition-all
     duration-300
+  ;
+}
+.social-icons a span::before,
+.social-icons a span {
+  @apply
+    w-[28px]
+    h-[28px]
+    inline-block
   ;
 }

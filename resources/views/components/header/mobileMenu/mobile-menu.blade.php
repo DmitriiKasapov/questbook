@@ -15,13 +15,13 @@
                 </button>
 
                 <div
-                    x-show="openIndex === {{ $index }}"
-                    x-transition:enter="transition ease-out duration-200"
-                    x-transition:enter-start="opacity-0 max-h-0"
-                    x-transition:enter-end="opacity-100 max-h-40"
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100 max-h-40"
-                    x-transition:leave-end="opacity-0 max-h-0"
+                x-show="openIndex === {{ $index }}"
+                    x-transition:enter="transition-all ease-out duration-800"
+                    x-transition:enter-start="max-h-0 opacity-0"
+                    x-transition:enter-end="max-h-96 opacity-100"
+                    x-transition:leave="transition-all ease-in duration-400"
+                    x-transition:leave-start="max-h-96 opacity-100"
+                    x-transition:leave-end="max-h-0 opacity-0"
                     x-cloak
                     class="overflow-hidden pl-3"
                 >
