@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('admin.scenes.index') }}" class="inline-block mb-4 text-blue-600 hover:underline">
-    ← Назад ко всем сценам
-</a>
+<div class="content">
+    <a href="{{ route('admin.stories.edit', $scene->story) }}#scenes"
+        class="inline-block mb-4 text-sm text-blue-600 hover:underline">
+         ← Назад ко всем сценам этой истории
+     </a>
 <h1 class="mb-4 text-2xl font-bold">Редактировать сцену (ID: {{ $scene->id }})</h1>
 
     <form action="{{ route('admin.scenes.update', $scene) }}" method="POST">
@@ -60,4 +62,6 @@
             Удалить сцену
         </button>
     </form>
+</div>
+
 @endsection

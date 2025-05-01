@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="sl">
-<head>
-    <meta charset="UTF-8">
-    <title>Scena</title>
-</head>
-<body>
+@extends('layouts.app-main')
 
-    <h1>Scena</h1>
+@section('title', 'scene')
+
+@section('content')
+<div class="content">
+   <h1>Scena</h1>
 
     <p>{{ $scene->content }}</p>
 
@@ -31,9 +29,8 @@
             </a>
         @endif
     @endif
+</div>
 
-    {{-- <br><br>
-    <a href="{{ url()->previous() }}">← Nazaj</a> --}}
 
-</body>
-</html>
+@endsection
+

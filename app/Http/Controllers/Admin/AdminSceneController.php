@@ -27,29 +27,43 @@ class AdminSceneController extends Controller
     }
 
     // Форма создания новой сцены
-    public function create()
+    public function create(Request $request)
     {
-        $stories = \App\Models\Story::orderBy('title')->get();
-        $allScenes = \App\Models\Scene::orderBy('id')->get(); // все существующие сцены
-        return view('admin.scenes.create', compact('stories', 'allScenes'));
+        $storyId = $request->get('story_id');
+        $branchId = $request->get('branch_id');
+
+        $story = $storyId ? \App\Models\Story::with('branches')->findOrFail($storyId) : null;
+        $branch = $branchId ? \App\Models\Branch::find($branchId) : null;
+
+        return view('admin.scenes.create', compact('story', 'branch'));
     }
 
     // Сохранение новой сцены
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $validated = $request->validate([
             'story_id' => 'required|exists:stories,id',
-            'type' => 'required|string|max:50',
+            'branch_id' => 'nullable|exists:branches,id',
+            'type' => 'required|in:main,branch,ending',
             'content' => 'required|string',
-            'choice_1_text' => 'nullable|string',
+            'choice_1_text' => 'nullable|string|max:255',
             'choice_1_target_scene_id' => 'nullable|integer|exists:scenes,id',
-            'choice_2_text' => 'nullable|string',
+            'choice_2_text' => 'nullable|string|max:255',
             'choice_2_target_scene_id' => 'nullable|integer|exists:scenes,id',
         ]);
 
-        Scene::create($data);
+        \App\Models\Scene::create([
+            'story_id' => $validated['story_id'],
+            'branch_id' => $validated['branch_id'] ?? null,
+            'type' => $validated['type'],
+            'content' => $validated['content'],
+            'choice_1_text' => $validated['choice_1_text'],
+            'choice_1_target_scene_id' => $validated['choice_1_target_scene_id'],
+            'choice_2_text' => $validated['choice_2_text'],
+            'choice_2_target_scene_id' => $validated['choice_2_target_scene_id'],
+        ]);
 
-        return redirect()->route('admin.scenes.index')->with('success', 'Сцена добавлена!');
+        return redirect()->route('admin.stories.edit', $validated['story_id'])->with('success', 'Сцена добавлена.');
     }
 
     // Форма редактирования сцены
@@ -74,7 +88,9 @@ class AdminSceneController extends Controller
 
         $scene->update($data);
 
-        return redirect()->route('admin.scenes.index')->with('success', 'Сцена обновлена!');
+        return redirect()
+        ->to(route('admin.stories.edit', $validated['story_id']) . '#scenes')
+        ->with('success', 'Сцена добавлена.');
     }
 
     // Удаление сцены

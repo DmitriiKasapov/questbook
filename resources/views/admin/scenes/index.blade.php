@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="content">
     <h1 class="mb-4 text-2xl font-bold">Сцены</h1>
 
     <a href="{{ route('admin.scenes.create') }}" class="inline-block mb-4 text-blue-600">+ Добавить сцену</a>
@@ -35,4 +36,6 @@
             </li>
         @endforeach
     </ul>
+</div>
+
 @endsection

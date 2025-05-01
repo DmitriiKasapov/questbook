@@ -43,8 +43,10 @@ class AdminStoryController extends Controller
         return redirect()->route('admin.panel')->with('success', 'История создана');
     }
 
-    public function edit(Story $story)
+    public function edit(\App\Models\Story $story)
     {
+        $story->load(['scenes', 'branches']); // загружаем связанные сцены и ветки
+
         return view('admin.stories.edit', compact('story'));
     }
 

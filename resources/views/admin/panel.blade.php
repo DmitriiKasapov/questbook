@@ -1,79 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content">
-        <h1 class="mb-4 text-2xl font-bold">Админ-панель</h1>
+<div class="px-4 py-6 mx-auto max-w-7xl">
+    <h1 class="mb-6 text-2xl font-bold">Админ-панель: Истории</h1>
 
-    <div x-data="{ tab: 'stories' }">
-        <nav class="mb-4 space-x-4">
-            <button @click="tab = 'stories'" :class="tab === 'stories' ? 'font-bold underline' : ''">Истории</button>
-            <button @click="tab = 'scenes'" :class="tab === 'scenes' ? 'font-bold underline' : ''">Сцены</button>
-        </nav>
+    <a href="{{ route('admin.stories.create') }}"
+       class="inline-block mb-6 text-sm text-blue-600 hover:underline">
+        + Добавить новую
+    </a>
 
-        {{-- Таб Истории --}}
-        <div x-show="tab === 'stories'">
-            <h1 class="mb-4 text-2xl font-bold">Истории</h1>
+    {{-- Сетка карточек --}}
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+        @foreach ($stories as $story)
+            <div class="flex flex-col p-4 bg-white shadow rounded-xl">
+                {{-- Обложка --}}
+                @if ($story->cover_url)
+                <div class="img-wrapper aspect-[4/5] flex justify-center items-center">
+                    <img src="{{ $story->cover_url }}"
+                         alt="cover"
+                    class="object-cover w-full">
+                </div>
 
-            <a href="{{ route('admin.stories.create') }}" class="inline-block mb-4 text-blue-600">+ Добавить новую</a>
+                @endif
 
-            <ul class="space-y-2">
-                @foreach ($stories as $story)
-                    <li class="p-4 border rounded">
-                        @if ($story->cover_image)
-                        <div class="img-wrapper max-w-[300px]">
-                            @if ($story->cover_url)
-                                <img src="{{ $story->cover_url }}" alt="cover">
-                            @endif
-                        </div>
+                {{-- Название и жанр --}}
+                <h2 class="mb-1 text-lg font-semibold text-gray-800">{{ $story->title }}</h2>
+                <div class="mb-2 text-sm text-gray-500">{{ $story->genre }}</div>
 
-                        @endif
-                        <div class="text-lg font-semibold">{{ $story->title }}</div>
-                        <div class="text-sm text-gray-600">{{ $story->genre }}</div>
-                        <a href="{{ route('admin.stories.edit', $story) }}" class="text-sm text-blue-600">Редактировать</a>
-                        <form action="{{ route('admin.stories.destroy', $story) }}" method="POST" class="inline-block ml-4">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-sm text-red-600" onclick="return confirm('Удалить эту историю?')">
-                                Удалить
-                            </button>
-                        </form>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+                {{-- Кнопки --}}
+                <div class="flex gap-3 mt-auto">
+                    <a href="{{ route('admin.stories.edit', $story) }}"
+                       class="text-sm text-blue-600 hover:underline">Редактировать</a>
 
-        {{-- Таб Сцены --}}
-        <div x-show="tab === 'scenes'" x-data="{ selectedType: '' }">
-        <a href="{{ route('admin.scenes.create') }}" class="text-blue-600">+ Добавить сцену</a>
-
-        <div class="mt-4 mb-2">
-            <label>Фильтр по типу:</label>
-            <select x-model="selectedType" class="p-1 border">
-                <option value="">— все типы —</option>
-                <option value="main">Основная</option>
-                <option value="branch">Ветка</option>
-                <option value="ending">Финал</option>
-            </select>
-        </div>
-
-        <ul class="space-y-2">
-            @foreach ($scenes as $scene)
-                <li x-show="!selectedType || '{{ $scene->type }}' === selectedType" class="p-3 border rounded">
-                    <div class="font-semibold">
-                        Сцена #{{ $scene->id }} [{{ $scene->type }}] — {{ $scene->story->title ?? '—' }}
-                    </div>
-                    <div class="text-sm">{{ Str::limit($scene->content, 100) }}</div>
-                    <div class="mt-1 text-sm">
-                        Выборы:
-                        <br>1 → {{ $scene->choice_1_target_scene_id }}
-                        <br>2 → {{ $scene->choice_2_target_scene_id }}
-                    </div>
-                    <a href="{{ route('admin.scenes.edit', $scene) }}" class="text-sm text-blue-600">Редактировать</a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+                    <form action="{{ route('admin.stories.destroy', $story) }}" method="POST" onsubmit="return confirm('Удалить эту историю?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                                class="text-sm text-red-500 hover:underline">
+                            Удалить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>
-
 @endsection
+

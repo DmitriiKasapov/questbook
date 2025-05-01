@@ -36,4 +36,8 @@ class Scene extends Model
     {
         return $this->belongsTo(Scene::class, 'choice_2_target_scene_id');
     }
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
 }

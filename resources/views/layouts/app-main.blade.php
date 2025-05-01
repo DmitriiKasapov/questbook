@@ -12,7 +12,7 @@
         @include('components.header.index')
 
         {{-- Контент --}}
-        <main class="main">
+        <main class="pt-20 main">
             @yield('content')
         </main>
 

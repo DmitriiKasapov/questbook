@@ -6,6 +6,7 @@ use App\Http\Controllers\StoryController;
 use App\Http\Controllers\SceneController;
 use App\Http\Controllers\Admin\AdminStoryController;
 use App\Http\Controllers\Admin\AdminSceneController;
+use App\Http\Controllers\Admin\AdminBranchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +26,25 @@ Route::get('/scenes/{scene}', [SceneController::class, 'show'])->name('scenes.sh
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
-    Route::resource('stories', AdminStoryController::class)->except(['show']);
-    Route::resource('scenes', AdminSceneController::class)->except(['show']);
-    Route::get('panel', function () {
-        $stories = \App\Models\Story::orderBy('id')->get();
-        $scenes = \App\Models\Scene::with('story')->orderBy('id')->get();
-        return view('admin.panel', compact('stories', 'scenes'));
-    })->name('panel');
-});
+    Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+        // Главная панель
+        Route::get('panel', function () {
+            $stories = \App\Models\Story::orderBy('id')->get();
+            $scenes = \App\Models\Scene::with('story')->orderBy('id')->get();
+            return view('admin.panel', compact('stories', 'scenes'));
+        })->name('panel');
+
+        // CRUD для историй и сцен
+        Route::resource('stories', AdminStoryController::class)->except(['show']);
+        Route::resource('scenes', AdminSceneController::class)->except(['show']);
+
+        // Ветки
+        Route::post('branches', [AdminBranchController::class, 'store'])->name('branches.store');
+        Route::delete('branches/{branch}', [AdminBranchController::class, 'destroy'])->name('branches.destroy');
+    });
+
+    // Перенаправление /admin → /admin/panel
+    Route::redirect('/admin', '/admin/panel');
 
 /*
 |--------------------------------------------------------------------------

@@ -36,4 +36,8 @@ class Story extends Model
             ? asset('storage/' . $this->cover_image)
             : null;
     }
+    public function branches()
+    {
+        return $this->hasMany(\App\Models\Branch::class);
+    }
 }
