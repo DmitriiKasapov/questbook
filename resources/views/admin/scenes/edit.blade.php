@@ -2,66 +2,64 @@
 
 @section('content')
 <div class="content">
-    <a href="{{ route('admin.stories.edit', $scene->story) }}#scenes"
-        class="inline-block mb-4 text-sm text-blue-600 hover:underline">
-         ← Назад ко всем сценам этой истории
-     </a>
-<h1 class="mb-4 text-2xl font-bold">Редактировать сцену (ID: {{ $scene->id }})</h1>
+    <a href="{{ route('admin.stories.edit', $story) }}#branches"
+       class="inline-block mb-4 text-sm text-blue-600 hover:underline">
+        ← Назад к сюжету
+    </a>
 
-    <form action="{{ route('admin.scenes.update', $scene) }}" method="POST">
+    <h1 class="mb-4 text-2xl font-bold">Редактировать сцену</h1>
+
+    <form action="{{ route('admin.scenes.update', $scene) }}" method="POST" class="space-y-6">
         @csrf
         @method('PUT')
 
-        <div class="mb-4">
-            <label class="block mb-1">История</label>
-            <select name="story_id" class="w-full p-2 border" required>
-                @foreach ($stories as $story)
-                    <option value="{{ $story->id }}" @selected($scene->story_id == $story->id)>
-                        {{ $story->title }}
+        {{-- История (readonly) --}}
+        <input type="hidden" name="story_id" value="{{ $story->id }}">
+        <div class="mb-2 text-sm text-gray-600">
+            История: <strong>{{ $story->title }}</strong>
+        </div>
+
+        {{-- Ветка --}}
+        <div>
+            <label class="block mb-1 font-semibold">Ветка</label>
+            <select name="branch_id" required class="w-full p-2 border rounded">
+                @foreach ($story->branches as $b)
+                    <option value="{{ $b->id }}" @selected(old('branch_id', $scene->branch_id) == $b->id)>
+                        {{ $b->title }}
                     </option>
                 @endforeach
             </select>
         </div>
 
-        <div class="mb-4">
-            <label class="block mb-1">Тип</label>
-            <input type="text" name="type" value="{{ old('type', $scene->type ?? '') }}" class="w-full p-2 border" required>
+        {{-- Текст сцены --}}
+        <div>
+            <label class="block mb-1 font-semibold">Текст сцены</label>
+            <textarea name="content" class="w-full p-2 border rounded" required>{{ old('content', $scene->content) }}</textarea>
         </div>
 
-        <div class="mb-4">
-            <label class="block mb-1">Текст сцены</label>
-            <textarea name="content" class="w-full p-2 border" rows="4">{{ $scene->content }}</textarea>
+        {{-- Выборы --}}
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+                <label class="block mb-1 font-semibold">Выбор 1</label>
+                <input type="text" name="choice_1_text" class="w-full p-2 border rounded"
+                       value="{{ old('choice_1_text', $scene->choice_1_text) }}">
+                <label class="block mt-2 text-sm text-gray-600">ID целевой сцены</label>
+                <input type="number" name="choice_1_target_scene_id" class="w-full p-2 border rounded"
+                       value="{{ old('choice_1_target_scene_id', $scene->choice_1_target_scene_id) }}">
+            </div>
+            <div>
+                <label class="block mb-1 font-semibold">Выбор 2</label>
+                <input type="text" name="choice_2_text" class="w-full p-2 border rounded"
+                       value="{{ old('choice_2_text', $scene->choice_2_text) }}">
+                <label class="block mt-2 text-sm text-gray-600">ID целевой сцены</label>
+                <input type="number" name="choice_2_target_scene_id" class="w-full p-2 border rounded"
+                       value="{{ old('choice_2_target_scene_id', $scene->choice_2_target_scene_id) }}">
+            </div>
         </div>
 
-        <div class="mb-4">
-            <label class="block mb-1">Выбор 1 (текст)</label>
-            <input type="text" name="choice_1_text" class="w-full p-2 border" value="{{ $scene->choice_1_text }}">
-        </div>
-
-        <div class="mb-4">
-            <label class="block mb-1">Выбор 1 → ID сцены</label>
-            <input type="number" name="choice_1_target_scene_id" class="w-full p-2 border" value="{{ $scene->choice_1_target_scene_id }}">
-        </div>
-
-        <div class="mb-4">
-            <label class="block mb-1">Выбор 2 (текст)</label>
-            <input type="text" name="choice_2_text" class="w-full p-2 border" value="{{ $scene->choice_2_text }}">
-        </div>
-
-        <div class="mb-4">
-            <label class="block mb-1">Выбор 2 → ID сцены</label>
-            <input type="number" name="choice_2_target_scene_id" class="w-full p-2 border" value="{{ $scene->choice_2_target_scene_id }}">
-        </div>
-
-        <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded">Сохранить</button>
-    </form>
-    <form action="{{ route('admin.scenes.destroy', $scene) }}" method="POST" class="mt-8">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="px-4 py-2 text-white bg-red-600 rounded" onclick="return confirm('Удалить эту сцену?')">
-            Удалить сцену
+        <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
+            Сохранить изменения
         </button>
     </form>
 </div>
-
 @endsection

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-3xl px-4 py-6 mx-auto">
+<div class="content">
     @if (isset($story))
-        <a href="{{ route('admin.stories.edit', $story) }}#scenes"
+        <a href="{{ route('admin.stories.edit', $story) }}#branches"
            class="inline-block mb-4 text-sm text-blue-600 hover:underline">
-            ← Назад ко всем сценам истории
+            ← Назад к сюжету
         </a>
     @endif
 
@@ -13,8 +13,7 @@
 
     <form action="{{ route('admin.scenes.store') }}" method="POST" class="space-y-6">
         @csrf
-
-        {{-- Привязка к истории --}}
+                  {{-- История --}}
         @if (!isset($story))
             <div>
                 <label class="block mb-1 font-semibold">История</label>
@@ -34,25 +33,35 @@
             </div>
         @endif
 
-        {{-- Привязка к ветке --}}
+        {{-- Ветка --}}
         @if (isset($branch))
             <input type="hidden" name="branch_id" value="{{ $branch->id }}">
             <div class="mb-2 text-sm text-gray-500">
                 Ветка: <strong>{{ $branch->title }}</strong>
             </div>
+        @else
+            <div>
+                <label class="block mb-1 font-semibold">Ветка</label>
+                <select name="branch_id" required class="w-full p-2 border rounded">
+                    @foreach ($story->branches as $b)
+                        <option value="{{ $b->id }}" @selected(old('branch_id') == $b->id)>
+                            {{ $b->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
         @endif
-
         {{-- Тип сцены --}}
         <div>
             <label class="block mb-1 font-semibold">Тип</label>
             <select name="type" class="w-full p-2 border rounded" required>
+                <option value="">— Выберите тип —</option>
                 <option value="main" @selected(old('type') === 'main')>Основная</option>
                 <option value="branch" @selected(old('type') === 'branch')>Ветка</option>
                 <option value="ending" @selected(old('type') === 'ending')>Финал</option>
             </select>
         </div>
-
-        {{-- Контент --}}
+        {{-- Текст сцены --}}
         <div>
             <label class="block mb-1 font-semibold">Текст сцены</label>
             <textarea name="content" class="w-full p-2 border rounded" required>{{ old('content') }}</textarea>
@@ -77,10 +86,19 @@
                        value="{{ old('choice_2_target_scene_id') }}">
             </div>
         </div>
-
+        <p class="text-sm text-red-500">branch_id debug: {{ $branch->id ?? '—' }}</p>
         <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
             Сохранить сцену
         </button>
     </form>
+    @if ($errors->any())
+    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded">
+        <ul class="space-y-1 list-disc list-inside">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </div>
 @endsection

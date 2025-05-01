@@ -11,6 +11,7 @@ class Scene extends Model
 
     protected $fillable = [
         'story_id',
+        'branch_id',
         'type',
         'content',
         'choice_1_text',
