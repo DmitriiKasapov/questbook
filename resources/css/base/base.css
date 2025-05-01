@@ -1,0 +1,232 @@
+@layer base {
+/* :root {
+   --green: #93BE5C;
+  --orang: #F28044;
+  --yellow: #E1A24B;
+ } */
+html,
+* {
+  box-sizing: border-box !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply
+  relative
+  flex
+  flex-col
+  justify-between
+  min-h-screen
+  m-0
+  text-darkgray
+  ;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  /* height: 100%; */
+  width: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* overflow-x: hidden; */
+}
+
+
+.site {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 1 auto;
+}
+.container {
+  @apply
+  max-w-[1280px]
+  w-full
+  mx-auto
+px-[15px]
+  ;
+}
+
+/* All */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  padding: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.3s ease;
+  &:hover {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+/* input {
+  @apply
+  border-none
+  outline-none
+  bg-transparent
+;
+} */
+
+.video-holder {
+  height: 0;
+  padding-top: 56.75%;
+  position: relative;
+
+  .video-player, iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.img-wrapper {
+  @apply
+    overflow-hidden
+  ;
+}
+.bg-full {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+/*===== 80px =====*/
+.mt80 {
+  @apply
+  mt-20
+  ;
+}
+.mb80 {
+  @apply
+  mb-20
+  ;
+}
+.pt80 {
+  @apply
+  pt-20
+  ;
+}
+.pb80 {
+  @apply
+  pb-20
+  ;
+}
+
+/*===== 60px =====*/
+.mt60 {
+  @apply
+  mt-[30px]
+  sm:mt-[60px]
+  ;
+}
+.mb60 {
+  @apply
+  mb-[30px]
+  sm:mb-[60px]
+  ;
+}
+.pt60 {
+  @apply
+  pt-[30px]
+  sm:pt-[60px]
+  ;
+}
+.pb60 {
+  @apply
+  pb-[30px]
+  sm:pb-[60px]
+  ;
+}
+
+/*===== 24px =====*/
+.mt24 {
+  @apply
+  mt-6
+  ;
+}
+.mb24 {
+  @apply
+  mb-6
+  ;
+}
+.pt24 {
+  @apply
+  pt-6
+  ;
+}
+.pb24 {
+  @apply
+  pb-6
+  ;
+}
+
+/*===== 12px =====*/
+.mt12 {
+  @apply
+  mt-3
+  ;
+}
+.mb12 {
+  @apply
+  mb-3
+  ;
+}
+.pt12 {
+  @apply
+  pt-3
+  ;
+}
+.pb12 {
+  @apply
+  pb-3
+  ;
+}
+.hide-scrollbar {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+.block-center {
+  @apply
+  flex
+  justify-center
+  text-center
+  ;
+}
+
+button.disable,
+a.disable {
+  @apply
+    pointer-events-none
+    opacity-50
+  ;
+}
+
+.text-elipsis {
+  @apply
+  overflow-hidden
+  text-ellipsis
+  max-sm:w-[250px]
+  ;
+}
+[x-cloak] { display: none !important; }
+
+}

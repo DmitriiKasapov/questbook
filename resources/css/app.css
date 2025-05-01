@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html,
+    * {
+      box-sizing: border-box !important;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      @apply
+      relative
+      flex
+      flex-col
+      justify-between
+      min-h-screen
+      m-0
+      ;
+      overflow-x: hidden;
+    }
+
+    html,
+    body {
+      /* height: 100%; */
+      width: 100%;
+      -ms-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      /* overflow-x: hidden; */
+    }
+
+
+    .site {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1 1 auto;
+    }
+    .content {
+      @apply
+      max-w-[1280px]
+      w-full
+      mx-auto
+    px-[15px]
+      ;
+    }
+
+    /* All */
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    *:focus {
+      outline: none !important;
+    }
+
+    a {
+      color: $black;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.3s ease;
+      &:hover {
+        color: $black;
+        text-decoration: none;
+      }
+    }
+    .img-wrapper {
+        @apply
+          overflow-hidden
+        ;
+      }
+      .bg-full {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+      .hide-scrollbar {
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+      }
+      .block-center {
+        @apply
+        flex
+        justify-center
+        text-center
+        ;
+      }
+
+      button.disable,
+      a.disable {
+        @apply
+          pointer-events-none
+          opacity-50
+        ;
+      }
+
+      .text-elipsis {
+        @apply
+        overflow-hidden
+        text-ellipsis
+        max-sm:w-[250px]
+        ;
+      }
+
+ }
+
+

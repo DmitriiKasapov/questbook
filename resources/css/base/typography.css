@@ -1,0 +1,64 @@
+@layer base {
+  body {
+    @apply
+    font-sans
+    text-[17px]
+    leading-[120%]
+    ;
+  }
+
+  h1, .h1 {
+    @apply
+    font-semibold
+    text-[2.5rem]
+    leading-[3rem];
+  }
+
+  h2, .h2 {
+    @apply
+    font-semibold text-[1.75rem] leading-9;
+  }
+
+  h3, .h3 {
+    @apply font-semibold text-2xl;
+  }
+
+  h4 {
+    @apply font-semibold text-xl leading-6;
+  }
+
+  h5 {
+    @apply font-semibold text-base leading-5;
+  }
+
+  b, strong {
+    @apply font-bold;
+  }
+}
+.big-title {
+  @apply
+  font-mc-black
+  font-black
+  leading-[100%]
+  sm:text-[70px]
+  text-[40px]
+  ;
+}
+.main-bold {
+  @apply
+  font-mc-bold
+  font-bold
+  leading-[100%]
+  uppercase
+  ;
+}
+.text20 {
+  @apply
+  font-mc-sans
+  font-normal
+  text-[20px]
+  leading-[100%]
+  ;
+}
+
+
