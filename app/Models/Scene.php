@@ -11,13 +11,16 @@ class Scene extends Model
 
     protected $fillable = [
         'story_id',
-        'branch_id',
-        'type',
         'content',
+
+        'chapter_key', // Глава
+        'branch',      // Ветка
+        'number',      // Номер внутри ветки
+
         'choice_1_text',
-        'choice_1_target_scene_id',
+        'choice_1_target_code',
         'choice_2_text',
-        'choice_2_target_scene_id',
+        'choice_2_target_code',
     ];
 
     // Сцена принадлежит одной истории
@@ -26,19 +29,28 @@ class Scene extends Model
         return $this->belongsTo(Story::class);
     }
 
-    // Первый выбор ведёт к другой сцене
-    public function choice1Target()
+    // Поиск следующей сцены по коду
+    public static function findByCode(string $code, int $story_id): ?self
     {
-        return $this->belongsTo(Scene::class, 'choice_1_target_scene_id');
+        [$chapter_key, $branch, $number] = explode(':', $code);
+
+        return self::where('story_id', $story_id)
+            ->where('chapter_key', $chapter_key)
+            ->where('branch', $branch)
+            ->where('number', $number)
+            ->first();
     }
 
-    // Второй выбор ведёт к другой сцене
-    public function choice2Target()
+    // Список всех возможных переходов (максимум два)
+    public function nextScenes()
     {
-        return $this->belongsTo(Scene::class, 'choice_2_target_scene_id');
-    }
-    public function branch()
-    {
-        return $this->belongsTo(Branch::class);
+        return collect([
+            $this->choice_1_target_code
+                ? self::findByCode($this->choice_1_target_code, $this->story_id)
+                : null,
+            $this->choice_2_target_code
+                ? self::findByCode($this->choice_2_target_code, $this->story_id)
+                : null,
+        ])->filter();
     }
 }

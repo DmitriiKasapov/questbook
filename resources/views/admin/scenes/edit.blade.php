@@ -19,41 +19,62 @@
             История: <strong>{{ $story->title }}</strong>
         </div>
 
+        {{-- Глава --}}
+        <div>
+            <label class="block mb-1 font-semibold">Ключ главы (chapter_key)</label>
+            <input type="text" name="chapter_key"
+                   value="{{ old('chapter_key', $scene->chapter_key) }}"
+                   class="w-full p-2 border rounded" required>
+        </div>
+
         {{-- Ветка --}}
         <div>
-            <label class="block mb-1 font-semibold">Ветка</label>
-            <select name="branch_id" required class="w-full p-2 border rounded">
-                @foreach ($story->branches as $b)
-                    <option value="{{ $b->id }}" @selected(old('branch_id', $scene->branch_id) == $b->id)>
-                        {{ $b->title }}
-                    </option>
-                @endforeach
-            </select>
+            <label class="block mb-1 font-semibold">Ветка (branch)</label>
+            <input type="text" name="branch"
+                   value="{{ old('branch', $scene->branch) }}"
+                   class="w-full p-2 border rounded" required>
+        </div>
+
+        {{-- Номер --}}
+        <div>
+            <label class="block mb-1 font-semibold">Номер сцены (number)</label>
+            <input type="number" name="number"
+                   value="{{ old('number', $scene->number) }}"
+                   class="w-full p-2 border rounded" required>
         </div>
 
         {{-- Текст сцены --}}
         <div>
             <label class="block mb-1 font-semibold">Текст сцены</label>
-            <textarea name="content" class="w-full p-2 border rounded" required>{{ old('content', $scene->content) }}</textarea>
+            <textarea name="content"
+                      class="w-full p-2 border rounded"
+                      required>{{ old('content', $scene->content) }}</textarea>
         </div>
 
         {{-- Выборы --}}
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-                <label class="block mb-1 font-semibold">Выбор 1</label>
-                <input type="text" name="choice_1_text" class="w-full p-2 border rounded"
+                <label class="block mb-1 font-semibold">Выбор 1 — текст</label>
+                <input type="text" name="choice_1_text"
+                       class="w-full p-2 border rounded"
                        value="{{ old('choice_1_text', $scene->choice_1_text) }}">
-                <label class="block mt-2 text-sm text-gray-600">ID целевой сцены</label>
-                <input type="number" name="choice_1_target_scene_id" class="w-full p-2 border rounded"
-                       value="{{ old('choice_1_target_scene_id', $scene->choice_1_target_scene_id) }}">
+
+                <label class="block mt-2 text-sm text-gray-600">Код цели (пример: vvod:main:2)</label>
+                <input type="text" name="choice_1_target_code"
+                       class="w-full p-2 border rounded"
+                       value="{{ old('choice_1_target_code', $scene->choice_1_target_code) }}">
             </div>
+
             <div>
-                <label class="block mb-1 font-semibold">Выбор 2</label>
-                <input type="text" name="choice_2_text" class="w-full p-2 border rounded"
+                <label class="block mb-1 font-semibold">Выбор 2 — текст</label>
+                <input type="text" name="choice_2_text"
+                       class="w-full p-2 border rounded"
                        value="{{ old('choice_2_text', $scene->choice_2_text) }}">
-                <label class="block mt-2 text-sm text-gray-600">ID целевой сцены</label>
-                <input type="number" name="choice_2_target_scene_id" class="w-full p-2 border rounded"
-                       value="{{ old('choice_2_target_scene_id', $scene->choice_2_target_scene_id) }}">
+
+                <label class="block mt-2 text-sm text-gray-600">Код цели (пример: vvod:sekond:1)</label>
+                <input type="text" name="choice_2_target_code"
+                       class="w-full p-2 border rounded"
+                       value="{{ old('choice_2_target_code', $scene->choice_2_target_code) }}">
             </div>
         </div>
 

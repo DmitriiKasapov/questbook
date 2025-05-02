@@ -22,37 +22,29 @@ class AdminStoryController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'story_id' => 'required|exists:stories,id',
-            'branch_id' => 'required|exists:branches,id',
-            'type' => 'required|in:main,branch,ending',
-            'content' => 'required|string',
-            'choice_1_text' => 'nullable|string|max:255',
-            'choice_1_target_scene_id' => 'nullable|integer|exists:scenes,id',
-            'choice_2_text' => 'nullable|string|max:255',
-            'choice_2_target_scene_id' => 'nullable|integer|exists:scenes,id',
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'short_description' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'genre' => 'nullable|string',
+            'is_published' => 'boolean',
+            'cover_image' => 'nullable|image|max:2048',
         ]);
 
-        \App\Models\Scene::create([
-            'story_id' => $validated['story_id'],
-            'branch_id' => $validated['branch_id'],
-            'type' => $validated['type'],
-            'content' => $validated['content'],
-            'choice_1_text' => $validated['choice_1_text'],
-            'choice_1_target_scene_id' => $validated['choice_1_target_scene_id'],
-            'choice_2_text' => $validated['choice_2_text'],
-            'choice_2_target_scene_id' => $validated['choice_2_target_scene_id'],
-        ]);
+        $data['is_published'] = $request->has('is_published');
 
-        return redirect()
-            ->to(route('admin.stories.edit', $validated['story_id']) . '#branches')
-            ->with('success', 'Сцена добавлена.');
+        if ($request->hasFile('cover_image')) {
+            $data['cover_image'] = $request->file('cover_image')->store('covers', 'public');
+        }
+
+        $story = \App\Models\Story::create($data);
+
+        return redirect()->route('admin.stories.edit', $story)->with('success', 'История создана.');
     }
 
     public function edit(\App\Models\Story $story)
     {
-        $story->load(['branches.scenes']);
-
+        $story->load(['branches.scenes', 'chapters']);
         return view('admin.stories.edit', compact('story'));
     }
 

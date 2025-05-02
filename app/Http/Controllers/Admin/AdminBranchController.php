@@ -12,16 +12,16 @@ class AdminBranchController extends Controller
     {
         $data = $request->validate([
             'story_id' => 'required|exists:stories,id',
+            'chapter_key' => 'required|string',
             'title' => 'required|string|max:255',
         ]);
 
-        $data['type'] = 'branch'; // по умолчанию
+        \App\Models\Branch::create($data);
 
-        Branch::create($data);
-
-        return back()->with('success', 'Ветка добавлена.');
+        return redirect()
+            ->to(route('admin.stories.edit', $data['story_id']) . '?tab=chapters&chapter=' . $data['chapter_key'])
+            ->with('success', 'Ветка добавлена.');
     }
-
     public function destroy(Branch $branch)
     {
         $branch->delete();

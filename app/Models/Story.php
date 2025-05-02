@@ -11,33 +11,46 @@ class Story extends Model
 
     protected $fillable = [
         'title',
-        'short_description', // ← ДОЛЖНО БЫТЬ ЗДЕСЬ
+        'short_description',
         'description',
         'genre',
         'is_published',
         'cover_image',
     ];
 
-    // История имеет много сцен
+    // Все сцены истории
     public function scenes()
     {
         return $this->hasMany(Scene::class);
     }
-    public function firstScene()
+
+    // Ветки истории
+    public function branches()
+    {
+        return $this->hasMany(\App\Models\Branch::class);
+    }
+
+    // Главы истории
+    public function chapters()
+    {
+        return $this->hasMany(\App\Models\Chapter::class);
+    }
+
+    // Первая сцена истории — vvod:main:1
+    public function getFirstScene()
     {
         return $this->scenes()
-            ->where('type', 'main')
-            ->orderBy('id')
+            ->where('chapter_key', 'vvod')
+            ->where('branch', 'main')
+            ->where('number', 1)
             ->first();
     }
+
+    // Получить URL обложки
     public function getCoverUrlAttribute()
     {
         return $this->cover_image
             ? asset('storage/' . $this->cover_image)
             : null;
-    }
-    public function branches()
-    {
-        return $this->hasMany(\App\Models\Branch::class);
     }
 }

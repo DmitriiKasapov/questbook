@@ -12,18 +12,8 @@ class AdminSceneController extends Controller
     // Список всех сцен
     public function index(Request $request)
     {
-        $query = \App\Models\Scene::with('story')->orderBy('id');
-
-        if ($request->filled('type')) {
-            $query->where('type', $request->type);
-        }
-
-        $scenes = $query->get();
-
-        // Типы можно получить из базы (distinct) или захардкодить
-        $availableTypes = \App\Models\Scene::distinct()->pluck('type')->sort()->values();
-
-        return view('admin.scenes.index', compact('scenes', 'availableTypes'));
+        $scenes = Scene::with('story')->orderBy('id')->get();
+        return view('admin.scenes.index', compact('scenes'));
     }
 
     // Форма создания новой сцены
@@ -33,50 +23,40 @@ class AdminSceneController extends Controller
         $branchId = $request->get('branch_id');
 
         $story = $storyId ? \App\Models\Story::with('branches')->findOrFail($storyId) : null;
-        $branch = $branchId ? \App\Models\Branch::find($branchId) : null;
+        $branch = $branchId ? \App\Models\Branch::findOrFail($branchId) : null;
 
+        $chapterKey = $branch?->chapter_key;
 
-        return view('admin.scenes.create', compact('story', 'branch'));
+        return view('admin.scenes.create', compact('story', 'branch', 'chapterKey'));
     }
-
     // Сохранение новой сцены
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'story_id' => 'required|exists:stories,id',
-            'branch_id' => 'required|exists:branches,id', // ✅ это важно!
-            'type' => 'required|in:main,branch,ending',
+            'chapter_key' => 'required|string|max:255',
+            'branch' => 'required|string|max:255',
+            'number' => 'required|integer',
             'content' => 'required|string',
+
             'choice_1_text' => 'nullable|string|max:255',
-            'choice_1_target_scene_id' => 'nullable|integer|exists:scenes,id',
+            'choice_1_target_code' => 'nullable|string|max:255',
             'choice_2_text' => 'nullable|string|max:255',
-            'choice_2_target_scene_id' => 'nullable|integer|exists:scenes,id',
+            'choice_2_target_code' => 'nullable|string|max:255',
         ]);
 
-        \App\Models\Scene::create([
-            'story_id' => $validated['story_id'],
-            'branch_id' => $validated['branch_id'], // ✅ здесь сохранить
-            'type' => $validated['type'],
-            'content' => $validated['content'],
-            'choice_1_text' => $validated['choice_1_text'],
-            'choice_1_target_scene_id' => $validated['choice_1_target_scene_id'],
-            'choice_2_text' => $validated['choice_2_text'],
-            'choice_2_target_scene_id' => $validated['choice_2_target_scene_id'],
-        ]);
+        Scene::create($validated);
 
         return redirect()
             ->to(route('admin.stories.edit', $validated['story_id']) . '#branches')
             ->with('success', 'Сцена добавлена.');
-
-
     }
 
     // Форма редактирования сцены
     public function edit(Scene $scene)
     {
         $story = $scene->story()->with('branches')->first();
-        $stories = \App\Models\Story::all();
+        $stories = Story::all();
 
         return view('admin.scenes.edit', compact('scene', 'story', 'stories'));
     }
@@ -86,25 +66,31 @@ class AdminSceneController extends Controller
     {
         $data = $request->validate([
             'story_id' => 'required|exists:stories,id',
-            'branch_id' => 'required|exists:branches,id',
+            'chapter_key' => 'required|string|max:255',
+            'branch' => 'required|string|max:255',
+            'number' => 'required|integer',
             'content' => 'required|string',
-            'choice_1_text' => 'nullable|string',
-            'choice_1_target_scene_id' => 'nullable|integer|exists:scenes,id',
-            'choice_2_text' => 'nullable|string',
-            'choice_2_target_scene_id' => 'nullable|integer|exists:scenes,id',
+
+            'choice_1_text' => 'nullable|string|max:255',
+            'choice_1_target_code' => 'nullable|string|max:255',
+            'choice_2_text' => 'nullable|string|max:255',
+            'choice_2_target_code' => 'nullable|string|max:255',
         ]);
 
         $scene->update($data);
 
         return redirect()
-            ->to(route('admin.stories.edit', $data['story_id']) . '#scenes')
+            ->to(route('admin.stories.edit', $data['story_id']) . '#branches')
             ->with('success', 'Сцена обновлена.');
     }
+
     // Удаление сцены
-    public function destroy(\App\Models\Scene $scene)
+    public function destroy(Scene $scene)
     {
         $scene->delete();
 
-        return redirect()->route('admin.scenes.index')->with('success', 'Сцена удалена!');
+        return redirect()
+            ->route('admin.scenes.index')
+            ->with('success', 'Сцена удалена!');
     }
 }

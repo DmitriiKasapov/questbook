@@ -2,17 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Chapter extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'story_id',
-        'chapter_key',
         'title',
+        'content',
+        'image',
+        'music',
+        'position',
+        'key', // ← это нужно
     ];
 
     public function story()

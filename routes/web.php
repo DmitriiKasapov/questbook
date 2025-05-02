@@ -7,6 +7,7 @@ use App\Http\Controllers\SceneController;
 use App\Http\Controllers\Admin\AdminStoryController;
 use App\Http\Controllers\Admin\AdminSceneController;
 use App\Http\Controllers\Admin\AdminBranchController;
+use App\Http\Controllers\ReadStoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,9 @@ Route::get('/', [StoryController::class, 'index']);
 
 Route::get('/stories', [StoryController::class, 'index'])->name('stories.index');
 Route::get('/stories/{story}', [StoryController::class, 'show'])->name('stories.show');
-Route::get('/scenes/{scene}', [SceneController::class, 'show'])->name('scenes.show');
+
+// Страница чтения истории (глава + сцена)
+Route::get('/story/{story}/read/{scene?}', [ReadStoryController::class, 'show'])->name('story.read');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,8 +44,12 @@ Route::get('/scenes/{scene}', [SceneController::class, 'show'])->name('scenes.sh
         // Ветки
         Route::post('branches', [AdminBranchController::class, 'store'])->name('branches.store');
         Route::delete('branches/{branch}', [AdminBranchController::class, 'destroy'])->name('branches.destroy');
-    });
 
+        // Главы
+        Route::post('chapters', [\App\Http\Controllers\Admin\ChapterController::class, 'store'])->name('chapters.store');
+        Route::put('chapters/{chapter}', [\App\Http\Controllers\Admin\ChapterController::class, 'update'])->name('chapters.update');
+        Route::delete('chapters/{chapter}', [\App\Http\Controllers\Admin\ChapterController::class, 'destroy'])->name('chapters.destroy');
+    });
     // Перенаправление /admin → /admin/panel
     Route::redirect('/admin', '/admin/panel');
 
